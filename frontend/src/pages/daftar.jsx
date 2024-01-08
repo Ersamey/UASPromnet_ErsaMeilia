@@ -1,4 +1,3 @@
-// Combined JSX File
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import nurse from "../assets/nurses.png";
@@ -54,7 +53,6 @@ const Daftar = () => {
         console.log('User created successfully');
         window.alert('Data berhasil ditambahkan ke database!');
         resetForm();
-        // Redirect to /about after successful form submission
         history('/antri');
       } else {
         console.error('Failed to create user');
@@ -140,7 +138,7 @@ const Daftar = () => {
                       <br />
                       <Col size={12} sm={12} className="px-1 mt-3">
                         <input
-                          type="tel"
+                          type="text"
                           value={formDetails.alamat}
                           placeholder="Alamat"
                           onChange={(e) =>

@@ -36,18 +36,15 @@ const Update = () => {
           });
         } else {
           console.error("Failed to fetch user data");
-          // Handle error, redirect, or show error message to the user
         }
       } catch (error) {
         console.error("Error fetching user data:", error);
-        // Handle error, redirect, or show error message to the user
       }
     };
 
     fetchData();
   }, [id]);
 
-  // Check if formDetails is still empty, don't render yet
   if (!formDetails.nama) {
     return <div>Loading...</div>;
   }
@@ -81,15 +78,12 @@ const Update = () => {
 
       if (response.ok) {
         console.log("User updated successfully");
-        // Optionally, you can handle success actions here
-        history("/antri"); // Redirect to home or any other page after update
+        history("/antri");
       } else {
         console.error("Failed to update user");
-        // Optionally, you can handle error actions here
       }
     } catch (error) {
       console.error("Error updating user:", error);
-      // Optionally, you can handle error actions here
     }
   };
 
@@ -97,7 +91,6 @@ const Update = () => {
     <section className="contact" id="contact">
       <Container>
         <Row className="align-items-center">
-          {/* Nurse Image */}
           <Col size={12} md={6}>
             <TrackVisibility>
               {({ isVisible }) => (
@@ -109,8 +102,6 @@ const Update = () => {
               )}
             </TrackVisibility>
           </Col>
-
-          {/* Update Form */}
           <Col size={12} md={6}>
             <TrackVisibility>
               {({ isVisible }) => (
@@ -126,8 +117,6 @@ const Update = () => {
                         onChange={(e) => onFormUpdate("nama", e.target.value)}
                       />
                     </Col>
-
-                    {/* Usia Input */}
                     <input
                       type="number"
                       value={formDetails.usia}
@@ -136,7 +125,6 @@ const Update = () => {
                     />
                     <br />
                     <br />
-                    {/* Laki-laki Radio */}
                     <label className="radio-container">
                       Laki-laki
                       <input
@@ -148,8 +136,6 @@ const Update = () => {
                       />
                       <span className="checkmark"></span>
                     </label>
-
-                    {/* Perempuan Radio */}
                     <label className="radio-container">
                       Perempuan
                       <input
@@ -163,15 +149,12 @@ const Update = () => {
                     </label>
                     <br />
                     <br />
-                    {/* Alamat Input */}
                     <input
                       type="tel"
                       value={formDetails.alamat}
                       placeholder="Alamat"
                       onChange={(e) => onFormUpdate("alamat", e.target.value)}
                     />
-
-                    {/* Deskripsi Textarea */}
                     <Col size={6} md={12} className="px-1">
                       <textarea
                         rows="6"
@@ -180,8 +163,6 @@ const Update = () => {
                         onChange={(e) => onFormUpdate("deskripsi", e.target.value)}
                       ></textarea>
                     </Col>
-
-                    {/* Submit Button */}
                     <button type="submit">Update Data</button>
                   </form>
                 </div>

@@ -21,11 +21,9 @@ const Lihat = () => {
         });
       } else {
         console.error("Failed to fetch patient data");
-        // Handle error, redirect, or show error message to the user
       }
     } catch (error) {
       console.error("Error fetching patient data:", error);
-      // Handle error, redirect, or show error message to the user
     }
   };
 
@@ -69,7 +67,6 @@ const Lihat = () => {
               <label className="info-label">Deskripsi:</label>
               <div className="info-value">{patient.deskripsi}</div>
             </div>
-            {/* Tambahkan field lain sesuai kebutuhan */}
           </div>
         </div>
         <br />

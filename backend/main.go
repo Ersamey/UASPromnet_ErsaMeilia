@@ -18,9 +18,9 @@ func main() {
 }
 
 func Routers() {
-	InitDB() //menghubungkan ke database melalu fungsi	InitDB()
+	InitDB() 
 	defer db.Close() 
-	log.Println("Starting the HTTP server on port 9080") //menampilkan log pada terminal
+	log.Println("Starting the HTTP server on port 9080") 
 	router := mux.NewRouter() 
 	router.HandleFunc("/api/pasien", GetUsers).Methods("GET")
 	router.HandleFunc("/api/pasien", CreateUser).Methods("POST")
@@ -131,7 +131,6 @@ func UpdateUser(w http.ResponseWriter, r *http.Request) {
 func DeleteUser(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
-	// stmt, err := db.Prepare("DELETE FROM users WHERE id = ?")
 	stmt, err := db.Prepare("DELETE FROM pasien_puskesmas_ersa WHERE id = ?")
 	if err != nil {
 		panic(err.Error())
@@ -165,8 +164,6 @@ func InitDB() {
 }
 
 /***************************************************/
-
-// CORSRouterDecorator applies CORS headers to a mux.Router
 type CORSRouterDecorator struct {
 	R *mux.Router
 }
@@ -181,7 +178,7 @@ func (c *CORSRouterDecorator) ServeHTTP(rw http.ResponseWriter,
 			"Accept, Accept-Language,"+
 				" Content-Type, YourOwnHeader")
 	}
-	// Stop here if its Preflighted OPTIONS request
+
 	if req.Method == "OPTIONS" {
 		return
 	}
